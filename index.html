@@ -2,10 +2,243 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Portfolio de Marie-France</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google — Portfolio de Marie-France</title>
+    <link href="https://fonts.googleapis.com/css2?family=Product+Sans:wght@400;700&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --google-blue: #4285F4;
+            --google-red: #EA4335;
+            --google-yellow: #FBBC05;
+            --google-green: #34A853;
+            --dark-bg: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* En-tête / Header */
+        header {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            justify-content: flex-end;
+            padding: 20px;
+            box-sizing: border-box;
+            gap: 20px;
+            font-size: 0.9rem;
+        }
+
+        header a {
+            color: var(--text-main);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        header a:hover {
+            color: var(--google-blue);
+        }
+
+        /* Section principale (Style Moteur de recherche) */
+        .search-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        /* Logo type Google avec ton prénom */
+        .google-logo {
+            font-family: 'Product Sans', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 30px;
+        }
+        .g1 { color: var(--google-blue); }
+        .o1 { color: var(--google-red); }
+        .o2 { color: var(--google-yellow); }
+        .g2 { color: var(--google-blue); }
+        .l { color: var(--google-green); }
+        .e { color: var(--google-red); }
+
+        /* Barre de recherche factice */
+        .search-bar {
+            width: 100%;
+            background: var(--card-bg);
+            border: 1px solid #334155;
+            padding: 14px 20px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            margin-bottom: 25px;
+        }
+
+        .search-bar i.fa-magnifying-glass {
+            color: var(--text-muted);
+        }
+
+        .search-bar span {
+            color: var(--text-main);
+            font-size: 1rem;
+            flex-grow: 1;
+            text-align: left;
+        }
+
+        .search-bar i.fa-microphone { color: var(--google-blue); }
+        .search-bar i.fa-camera { color: color: var(--google-red); }
+
+        /* Boutons sous la barre */
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+
+        .btn-google {
+            background: #334155;
+            color: var(--text-main);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.2s, transform 0.1s;
+        }
+
+        .btn-google:hover {
+            background: #475569;
+            transform: scale(1.02);
+        }
+
+        /* Grille des applications / projets */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 900px;
+            padding: 20px;
+            box-sizing: border-box;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid #334155;
+            border-radius: 20px;
+            padding: 25px;
+            text-align: left;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            border-color: var(--google-blue);
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        .icon-blue { color: var(--google-blue); }
+        .icon-red { color: var(--google-red); }
+
+        .card h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .card p {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        footer {
+            margin-top: auto;
+            width: 100%;
+            background: #020617;
+            text-align: center;
+            padding: 15px 0;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid #1e293b;
+        }
+    </style>
 </head>
 <body>
-    <h1>Bienvenue sur mon Portfolio !</h1>
-    <p>Ce site est actuellement en cours de développement pour mon application SuccessSchool.</p>
+
+    <header>
+        <a href="mailto:tonemail@exemple.com"><i class="fa-solid fa-envelope"></i> Gmail</a>
+        <a href="https://github.com/GoogleFrance" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+    </header>
+
+    <div class="search-container">
+        <div class="google-logo">
+            <span class="g1">G</span><span class="o1">o</span><span class="o2">o</span><span class="g2">g</span><span class="l">l</span><span class="e">e</span>
+        </div>
+
+        <div class="search-bar">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <span>Marie-France, Développeuse Full-Stack</span>
+            <i class="fa-solid fa-microphone"></i>
+            <i class="fa-solid fa-camera"></i>
+        </div>
+
+        <div class="btn-group">
+            <button class="btn-google" onclick="window.location.href='mailto:tonemail@exemple.com'">Me contacter</button>
+            <button class="btn-google">J'ai de la chance</button>
+        </div>
+    </div>
+
+    <h2 style="font-weight: 800; font-size: 1.5rem; margin-bottom: 5px;"><i class="fa-solid fa-cubes-stacked icon-blue" style="margin-right: 10px;"></i>Mes Projets de Recherche</h2>
+    <p style="color: var(--text-muted); margin: 0 0 30px 0; font-size: 0.9rem;">Découvre les applications conçues par Google (Marie-France)</p>
+
+    <div class="projects-grid">
+        <div class="card">
+            <div class="card-icon icon-blue"><i class="fa-solid fa-user-graduate"></i></div>
+            <h3>SuccessSchool</h3>
+            <p>Une application web éducative complète dotée d'un espace d'inscription sécurisé pour les élèves et les enseignants afin de maximiser leur réussite scolaire.</p>
+        </div>
+
+        <div class="card">
+            <div class="card-icon icon-red"><i class="fa-solid fa-champagne-glasses"></i></div>
+            <h3>BarManager</h3>
+            <p>Un logiciel intelligent permettant de gérer les stocks, les ventes et la comptabilité d'un établissement de nuit en temps réel.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Marie-France — Fait avec passion et propulsé par GitHub Pages</p>
+    </footer>
+
 </body>
 </html>
