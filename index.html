@@ -3,25 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google — Portfolio de Marie-France</title>
-    <link href="https://fonts.googleapis.com/css2?family=Product+Sans:wght@400;700&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>Marie-France | Développeuse & Créatrice de Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
         :root {
-            --google-blue: #4285F4;
-            --google-red: #EA4335;
-            --google-yellow: #FBBC05;
-            --google-green: #34A853;
-            --dark-bg: #0f172a;
-            --card-bg: #1e293b;
+            --brand-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+            --bg-dark: #090d16;
+            --bg-card: #131926;
             --text-main: #f8fafc;
-            --text-muted: #94a3b8;
+            --text-muted: #64748b;
+            --border-glow: rgba(99, 102, 241, 0.2);
         }
 
         body {
-            font-family: 'Outfit', sans-serif;
-            background-color: var(--dark-bg);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-dark);
             color: var(--text-main);
             margin: 0;
             padding: 0;
@@ -29,215 +27,266 @@
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
+            overflow-x: hidden;
         }
 
-        /* En-tête / Header */
-        header {
+        /* Barre de navigation haute */
+        nav {
             width: 100%;
-            max-width: 1200px;
+            max-width: 1100px;
             display: flex;
-            justify-content: flex-end;
-            padding: 20px;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 20px;
             box-sizing: border-box;
-            gap: 20px;
-            font-size: 0.9rem;
         }
 
-        header a {
-            color: var(--text-main);
+        .nav-logo {
+            font-weight: 800;
+            font-size: 1.3rem;
+            background: var(--brand-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
             text-decoration: none;
-            transition: color 0.2s;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s;
         }
 
-        header a:hover {
-            color: var(--google-blue);
+        .nav-links a:hover {
+            color: var(--text-main);
         }
 
-        /* Section principale (Style Moteur de recherche) */
-        .search-container {
+        /* Section d'accueil (Le Moteur de Recherche Marie-France) */
+        .hero {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            flex-grow: 1;
-            width: 100%;
-            max-width: 600px;
-            padding: 20px;
-            box-sizing: border-box;
             text-align: center;
-            margin-top: 40px;
+            padding: 60px 20px;
+            width: 100%;
+            max-width: 700px;
+            box-sizing: border-box;
         }
 
-        /* Logo type Google avec ton prénom */
-        .google-logo {
-            font-family: 'Product Sans', sans-serif;
-            font-size: 3.5rem;
-            font-weight: 700;
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin: 0 0 10px 0;
             letter-spacing: -1px;
+        }
+
+        .hero .nickname {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #a855f7;
+            text-transform: uppercase;
+            letter-spacing: 3px;
             margin-bottom: 30px;
         }
-        .g1 { color: var(--google-blue); }
-        .o1 { color: var(--google-red); }
-        .o2 { color: var(--google-yellow); }
-        .g2 { color: var(--google-blue); }
-        .l { color: var(--google-green); }
-        .e { color: var(--google-red); }
 
-        /* Barre de recherche factice */
-        .search-bar {
+        /* Barre d'exploration Centrale */
+        .search-engine-box {
             width: 100%;
-            background: var(--card-bg);
-            border: 1px solid #334155;
-            padding: 14px 20px;
-            border-radius: 30px;
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.05);
+            padding: 16px 24px;
+            border-radius: 50px;
             display: flex;
             align-items: center;
             gap: 15px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            margin-bottom: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4), 0 0 1px 1px var(--border-glow);
+            margin-bottom: 40px;
         }
 
-        .search-bar i.fa-magnifying-glass {
-            color: var(--text-muted);
+        .search-engine-box i.fa-terminal {
+            background: var(--brand-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 1.2rem;
         }
 
-        .search-bar span {
+        .search-engine-box .typing-text {
             color: var(--text-main);
-            font-size: 1rem;
+            font-size: 1.05rem;
             flex-grow: 1;
             text-align: left;
-        }
-
-        .search-bar i.fa-microphone { color: var(--google-blue); }
-        .search-bar i.fa-camera { color: color: var(--google-red); }
-
-        /* Boutons sous la barre */
-        .btn-group {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 50px;
-        }
-
-        .btn-google {
-            background: #334155;
-            color: var(--text-main);
-            border: none;
-            padding: 10px 20px;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            cursor: pointer;
             font-weight: 500;
-            transition: background 0.2s, transform 0.1s;
         }
 
-        .btn-google:hover {
-            background: #475569;
-            transform: scale(1.02);
-        }
-
-        /* Grille des applications / projets */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        /* Compteurs / Stats rapides */
+        .stats-badge {
+            display: flex;
             gap: 20px;
-            width: 100%;
-            max-width: 900px;
-            padding: 20px;
-            box-sizing: border-box;
             margin-bottom: 60px;
         }
 
-        .card {
-            background: var(--card-bg);
-            border: 1px solid #334155;
-            border-radius: 20px;
-            padding: 25px;
+        .stat-item {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 10px 20px;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.05);
+            font-size: 0.85rem;
+        }
+        .stat-item strong {
+            color: #a855f7;
+        }
+
+        /* Section Projets */
+        .section-title {
+            width: 100%;
+            max-width: 900px;
+            padding: 0 20px;
+            box-sizing: border-box;
             text-align: left;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            width: 100%;
+            max-width: 900px;
+            padding: 0 20px 60px 20px;
+            box-sizing: border-box;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 24px;
+            padding: 30px;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-            border-color: var(--google-blue);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            border-color: rgba(168, 85, 247, 0.4);
         }
 
         .card-icon {
-            font-size: 2rem;
-            margin-bottom: 15px;
+            width: 50px;
+            height: 50px;
+            background: rgba(168, 85, 247, 0.1);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: #a855f7;
+            margin-bottom: 20px;
         }
-        .icon-blue { color: var(--google-blue); }
-        .icon-red { color: var(--google-red); }
 
         .card h3 {
-            margin: 0 0 10px 0;
-            font-size: 1.2rem;
+            margin: 0 0 12px 0;
+            font-size: 1.25rem;
             font-weight: 700;
         }
 
         .card p {
-            margin: 0;
+            margin: 0 0 20px 0;
             color: var(--text-muted);
             font-size: 0.9rem;
-            line-height: 1.5;
+            line-height: 1.6;
+        }
+
+        .card-link {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .card-link i {
+            font-size: 0.75rem;
+            transition: transform 0.2s;
+        }
+        .card:hover .card-link i {
+            transform: translateX(3px);
         }
 
         footer {
-            margin-top: auto;
             width: 100%;
-            background: #020617;
             text-align: center;
-            padding: 15px 0;
+            padding: 30px 0;
             color: var(--text-muted);
             font-size: 0.85rem;
-            border-top: 1px solid #1e293b;
+            border-top: 1px solid rgba(255,255,255,0.03);
+            margin-top: auto;
+            background: #05070f;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <a href="mailto:tonemail@exemple.com"><i class="fa-solid fa-envelope"></i> Gmail</a>
-        <a href="https://github.com/GoogleFrance" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
-    </header>
+    <nav>
+        <div class="nav-logo">MF.dev</div>
+        <div class="nav-links">
+            <a href="#projets"><i class="fa-solid fa-code-branch mr-1"></i> Projets</a>
+            <a href="mailto:tonemail@exemple.com"><i class="fa-solid fa-paper-plane mr-1"></i> Contact</a>
+        </div>
+    </nav>
 
-    <div class="search-container">
-        <div class="google-logo">
-            <span class="g1">G</span><span class="o1">o</span><span class="o2">o</span><span class="g2">g</span><span class="l">l</span><span class="e">e</span>
+    <div class="hero">
+        <h1>Marie-France</h1>
+        <div class="nickname">// Connaissances & Algorithmes</div>
+
+        <div class="search-engine-box">
+            <i class="fa-solid fa-terminal"></i>
+            <div class="typing-text">Recherche : Développeuse d'applications complexes...</div>
+            <i class="fa-solid fa-circle-check" style="color: #22c55e;"></i>
         </div>
 
-        <div class="search-bar">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <span>Marie-France, Développeuse Full-Stack</span>
-            <i class="fa-solid fa-microphone"></i>
-            <i class="fa-solid fa-camera"></i>
-        </div>
-
-        <div class="btn-group">
-            <button class="btn-google" onclick="window.location.href='mailto:tonemail@exemple.com'">Me contacter</button>
-            <button class="btn-google">J'ai de la chance</button>
+        <div class="stats-badge">
+            <div class="stat-item"><i class="fa-solid fa-bolt mr-1"></i> Vitesse : <strong>Ultra-rapide</strong></div>
+            <div class="stat-item"><i class="fa-solid fa-layer-group mr-1"></i> Stack : <strong>Full-Stack PHP/HTML</strong></div>
         </div>
     </div>
 
-    <h2 style="font-weight: 800; font-size: 1.5rem; margin-bottom: 5px;"><i class="fa-solid fa-cubes-stacked icon-blue" style="margin-right: 10px;"></i>Mes Projets de Recherche</h2>
-    <p style="color: var(--text-muted); margin: 0 0 30px 0; font-size: 0.9rem;">Découvre les applications conçues par Google (Marie-France)</p>
+    <div class="section-title" id="projets">
+        <i class="fa-solid fa-chart-pie" style="color: #a855f7;"></i> Index de mes applications
+    </div>
 
     <div class="projects-grid">
         <div class="card">
-            <div class="card-icon icon-blue"><i class="fa-solid fa-user-graduate"></i></div>
+            <div class="card-icon"><i class="fa-solid fa-graduation-cap"></i></div>
             <h3>SuccessSchool</h3>
-            <p>Une application web éducative complète dotée d'un espace d'inscription sécurisé pour les élèves et les enseignants afin de maximiser leur réussite scolaire.</p>
+            <p>Plateforme éducative optimisée avec espaces sécurisés pour élèves et enseignants. Architecture robuste et base de données relationnelle sécurisée.</p>
+            <a href="#" class="card-link">Consulter le projet <i class="fa-solid fa-arrow-right"></i></a>
         </div>
 
         <div class="card">
-            <div class="card-icon icon-red"><i class="fa-solid fa-champagne-glasses"></i></div>
-            <h3>BarManager</h3>
-            <p>Un logiciel intelligent permettant de gérer les stocks, les ventes et la comptabilité d'un établissement de nuit en temps réel.</p>
+            <div class="card-icon" style="color: #ec4899; background: rgba(236,72,153,0.1);"><i class="fa-solid fa-cash-register"></i></div>
+            <h3>StockManager Pro</h3>
+            <p>Système applicatif de gestion commerciale. Contrôle des flux financiers, suivi des stocks de boissons et rapports d'activité analytiques.</p>
+            <a href="#" class="card-link">Consulter le projet <i class="fa-solid fa-arrow-right"></i></a>
         </div>
     </div>
 
     <footer>
-        <p>© 2026 Marie-France — Fait avec passion et propulsé par GitHub Pages</p>
+        <p>© 2026 Marie-France (Google) — Architecture logicielle certifiée et hébergée via GitHub</p>
     </footer>
 
 </body>
